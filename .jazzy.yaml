@@ -1,0 +1,8 @@
+module: LoggingSlack
+github_url: https://github.com/wlisac/swift-log-slack
+
+author: Will Lisac
+author_url: https://twitter.com/wlisac
+
+clean: true
+theme: fullwidth

@@ -1,0 +1,69 @@
+if: (type = pull_request) OR (branch = master) OR (tag =~ /^\d+\.\d+\.\d+(-.*)?$/)
+
+stages:
+  - name: pretest
+  - name: test
+  - name: deploy
+    if: tag =~ /^\d+\.\d+\.\d+(-.*)?$/
+
+os: osx
+language: swift
+xcode_project: swift-log-slack.xcodeproj
+xcode_scheme: swift-log-slack-Package
+
+jobs:
+  include:
+    - &linux
+      name: Linux / Swift 5.1
+      env: SWIFT_VERSION=5.1
+      os: linux
+      language: generic
+      install: eval "$(curl -sL https://raw.githubusercontent.com/kylef/swiftenv/1.4.0/docs/install.sh)"
+      script: swift test
+      
+    - &macOS
+      name: macOS / Swift 5.1
+      osx_image: xcode11
+      script: swift test
+
+    - &xcodebuild
+      name: iOS / Swift 5.1
+      osx_image: xcode11
+      xcode_destination: platform=iOS Simulator,OS=13.0,name=iPhone 11
+      before_install: swift package generate-xcodeproj --enable-code-coverage
+      after_success: bash <(curl -s https://codecov.io/bash)
+
+    - <<: *xcodebuild
+      name: tvOS / Swift 5.1
+      xcode_destination: platform=tvOS Simulator,OS=13.0,name=Apple TV
+
+    - <<: *xcodebuild
+      name: watchOS / Swift 5.1
+      script: |
+        set -o pipefail
+        xcodebuild \
+          -project swift-log-slack.xcodeproj \
+          -scheme swift-log-slack-Package \
+          -destination 'platform=watchOS Simulator,OS=6.0,name=Apple Watch Series 4 - 40mm' \
+          build | xcpretty
+      after_success: false
+
+    - stage: pretest
+      name: Validate Generated Linux Tests
+      osx_image: xcode11
+      install: swift test --generate-linuxmain
+      script: git diff --exit-code
+
+    - name: Jazzy
+      osx_image: xcode11
+      stage: deploy
+      install: gem install jazzy
+      before_script: swift package generate-xcodeproj
+      script: jazzy --module-version $TRAVIS_TAG -x USE_SWIFT_RESPONSE_FILE=NO
+      deploy:
+        provider: pages
+        skip-cleanup: true
+        github-token: $GITHUB_TOKEN
+        local-dir: docs
+        on:
+          tags: true
