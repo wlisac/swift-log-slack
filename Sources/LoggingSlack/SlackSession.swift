@@ -1,4 +1,7 @@
 import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 
 protocol SlackSession {
     func send(_ message: SlackMessage, to webhookURL: URL, completion: ((Result<Void, Error>) -> Void)?)

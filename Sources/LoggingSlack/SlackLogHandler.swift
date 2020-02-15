@@ -1,4 +1,7 @@
 import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 import Logging
 
 /// `SlackLogHandler` is an implementation of `LogHandler` for sending
