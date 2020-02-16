@@ -23,17 +23,20 @@ let isLoggingConfigured: Bool = {
             webhookURL = url
         }
         
-        var handler = SlackLogHandler(label: label,
-                                      webhookURL: webhookURL,
-                                      channel: "swift-log-test-channel",
-                                      username: "TestApp",
-                                      icon: .emoji("smile"))
+        var slackLogHandler = SlackLogHandler(label: label,
+                                              webhookURL: webhookURL,
+                                              channel: "swift-log-test-channel",
+                                              username: "TestApp",
+                                              icon: .emoji("smile"))
         
         if useMockSession {
-            handler.slackSession = mockSession
+            slackLogHandler.slackSession = mockSession
         }
         
-        return handler
+        return MultiplexLogHandler([
+            slackLogHandler,
+            StreamLogHandler.standardOutput(label: label)
+        ])
     }
     return true
 }()
