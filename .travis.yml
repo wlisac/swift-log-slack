@@ -60,7 +60,7 @@ jobs:
       stage: deploy
       install: gem install jazzy
       before_script: swift package generate-xcodeproj
-      script: jazzy --module-version $TRAVIS_TAG -x USE_SWIFT_RESPONSE_FILE=NO
+      script: jazzy --module-version $TRAVIS_TAG -x -scheme,swift-log-slack-Package
       deploy:
         provider: pages
         skip-cleanup: true
