@@ -74,6 +74,10 @@ For example, this will configure LoggingSlack to send all `error` log level and 
 SlackLogHandler.globalLogLevelThreshold = .error
 ```
 
+## API Documentation
+
+Visit the [online API reference](https://wlisac.github.io/swift-log-slack/Structs/SlackLogHandler.html) for full documentation of the public API.
+
 ## Installation
 
 LoggingSlack requires Xcode 11 or a Swift 5.1 toolchain with the Swift Package Manager. 
