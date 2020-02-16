@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LoggingSlack  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+
+    <a title="LoggingSlack  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          LoggingSlack 0.1.0 Docs
+        </a>
+         (100% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/wlisac/swift-log-slack">
+            <img class="header-icon" src="img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">LoggingSlack Reference</a>
+      <img class="carat" src="img/carat.png" />
+      LoggingSlack  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/SlackLogHandler.html">SlackLogHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/SlackLogHandler/ColorScheme.html">– ColorScheme</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/SlackLogHandler/Color.html">– Color</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/SlackLogHandler/Icon.html">– Icon</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            
+            <h1 id='loggingslack' class='heading'>LoggingSlack</h1>
+
+<p><img src="https://img.shields.io/badge/Swift-5.1-orange.svg" alt="swift">
+<img src="https://img.shields.io/badge/platforms-macOS%20%7C%20Linux%20%7C%20iOS%20%7C%20tvOS%20%7C%20watchOS-lightgrey.svg" alt="platforms">
+<img src="https://img.shields.io/badge/version-0.1.0-blue.svg" alt="version">
+<a href="https://twitter.com/wlisac"><img src="https://img.shields.io/badge/twitter-@wlisac-blue.svg" alt="twitter"></a>
+<br>
+<a href="https://travis-ci.com/wlisac/swift-log-slack"><img src="https://travis-ci.com/wlisac/swift-log-slack.svg?branch=master" alt="build"></a>
+<a href="https://wlisac.github.io/swift-log-slack/Structs/SlackLogHandler.html"><img src="https://raw.githubusercontent.com/wlisac/swift-log-slack/gh-pages/badge.svg?sanitize=true" alt="jazzy"></a>
+<a href="https://codecov.io/gh/wlisac/swift-log-slack"><img src="https://img.shields.io/codecov/c/github/wlisac/swift-log-slack" alt="codecov"></a></p>
+
+<p>Welcome to <strong>LoggingSlack</strong> – a logging backend for <a href="https://github.com/apple/swift-log">SwiftLog</a> that sends critical log messages to Slack.</p>
+<h2 id='usage' class='heading'>Usage</h2>
+<h3 id='setup-incoming-webhooks' class='heading'>Setup Incoming Webhooks</h3>
+
+<p>LoggingSlack uses <a href="https://slack.com/apps/A0F7XDUAZ-incoming-webhooks">Incoming Webhooks</a> to send log messages to a Slack channel.</p>
+
+<p>Once you&rsquo;ve setup Incoming Webhooks, you should have a webhook URL that you can use to configure LoggingSlack.</p>
+<h3 id='bootstrap-swiftlog' class='heading'>Bootstrap SwiftLog</h3>
+
+<p>LoggingSlack is intended to be used as a secondary logging backend to send critical log messages directly to Slack.</p>
+
+<p>You can use SwiftLog&rsquo;s <code>MultiplexLogHandler</code> to setup LoggingSlack with another logging backend.</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">Logging</span>
+<span class="kd">import</span> <span class="kt">LoggingSlack</span>
+
+<span class="k">let</span> <span class="nv">webhookURL</span> <span class="o">=</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://hooks.slack.com/services/T1MGQL1L8/RM2LE5QLF/YH036NhldqitdR1lVd5NLS6z"</span><span class="p">)</span><span class="o">!</span>
+
+<span class="kt">LoggingSystem</span><span class="o">.</span><span class="n">bootstrap</span> <span class="p">{</span> <span class="n">label</span> <span class="k">in</span>
+    <span class="kt">MultiplexLogHandler</span><span class="p">([</span>
+        <span class="c1">// Setup SlackLogHandler with a webhook URL </span>
+        <span class="kt">SlackLogHandler</span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span> <span class="nv">webhookURL</span><span class="p">:</span> <span class="n">webhookURL</span><span class="p">),</span>
+        <span class="c1">// Setup the standard logging backend to enable console logging</span>
+        <span class="kt">StreamLogHandler</span><span class="o">.</span><span class="nf">standardOutput</span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="n">label</span><span class="p">)</span>
+    <span class="p">])</span>
+<span class="p">}</span>
+</code></pre>
+<h3 id='using-a-logger' class='heading'>Using a Logger</h3>
+
+<p>You can now use SwiftLog as usual and critical log messages are sent directly to Slack.</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">Logging</span>
+
+<span class="k">let</span> <span class="nv">logger</span> <span class="o">=</span> <span class="kt">Logger</span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"com.example.ExampleApp.main"</span><span class="p">)</span>
+
+<span class="n">logger</span><span class="o">.</span><span class="nf">critical</span><span class="p">(</span><span class="s">"Something went wrong!"</span><span class="p">)</span>
+</code></pre>
+<h4 id='output' class='heading'>Output</h4>
+
+<p>This will output a Slack message and a console message since both logging backends were setup.</p>
+
+<p><img src="Assets/message.png" width="308"></p>
+<pre class="highlight plaintext"><code>2020-02-15T19:30:00-0800 critical: Something went wrong!
+</code></pre>
+<h3 id='log-level-thresehold' class='heading'>Log Level Thresehold</h3>
+
+<p>Only <code>critical</code> <a href="https://github.com/apple/swift-log#log-levels">log level</a> messages are sent to Slack by default.</p>
+
+<p>You can adjust the log level threshold by changing the <code>globalLogLevelThreshold</code> static property on <code><a href="Structs/SlackLogHandler.html">SlackLogHandler</a></code>.</p>
+
+<p>For example, this will configure LoggingSlack to send all <code>error</code> log level and above messages to Slack.</p>
+<pre class="highlight swift"><code><span class="kt">SlackLogHandler</span><span class="o">.</span><span class="n">globalLogLevelThreshold</span> <span class="o">=</span> <span class="o">.</span><span class="n">error</span>
+</code></pre>
+<h2 id='api-documentation' class='heading'>API Documentation</h2>
+
+<p>Visit the <a href="https://wlisac.github.io/swift-log-slack/Structs/SlackLogHandler.html">online API reference</a> for full documentation of the public API.</p>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p>LoggingSlack requires Xcode 11 or a Swift 5.1 toolchain with the Swift Package Manager. </p>
+<h3 id='swift-package-manager' class='heading'>Swift Package Manager</h3>
+
+<p>Add the LoggingSlack package as a dependency to your <code>Package.swift</code> file.</p>
+<pre class="highlight swift"><code><span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/wlisac/swift-log-slack.git"</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="s">"0.1.0"</span><span class="p">)</span>
+</code></pre>
+
+<p>Add LoggingSlack to your target&rsquo;s dependencies.</p>
+<pre class="highlight swift"><code><span class="o">.</span><span class="nf">target</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"Example"</span><span class="p">,</span> <span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span><span class="s">"LoggingSlack"</span><span class="p">])</span>
+</code></pre>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2020 <a class="link" href="https://twitter.com/wlisac" target="_blank" rel="external">Will Lisac</a>. All rights reserved. (Last updated: 2020-02-16)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

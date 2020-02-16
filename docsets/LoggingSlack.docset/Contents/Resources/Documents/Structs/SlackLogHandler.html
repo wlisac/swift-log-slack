@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SlackLogHandler Structure Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Struct/SlackLogHandler" class="dashAnchor"></a>
+
+    <a title="SlackLogHandler Structure Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          LoggingSlack 0.1.0 Docs
+        </a>
+         (100% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/wlisac/swift-log-slack">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">LoggingSlack Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      SlackLogHandler Structure Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SlackLogHandler.html">SlackLogHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SlackLogHandler/ColorScheme.html">– ColorScheme</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SlackLogHandler/Color.html">– Color</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SlackLogHandler/Icon.html">– Icon</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            <h1>SlackLogHandler</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SlackLogHandler</span> <span class="p">:</span> <span class="kt">LogHandler</span></code></pre>
+
+                </div>
+              </div>
+            <p><code>SlackLogHandler</code> is an implementation of <code>LogHandler</code> for sending
+<code>Logger</code> output directly to Slack.</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12LoggingSlack0B10LogHandlerV06globalC14LevelThreshold0A06LoggerV0F0OvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/globalLogLevelThreshold" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12LoggingSlack0B10LogHandlerV06globalC14LevelThreshold0A06LoggerV0F0OvpZ">globalLogLevelThreshold</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The global log level threshold that determines when to send log output to Slack.
+Defaults to <code>.critical</code>.</p>
+
+<p>The <code><a href="../Structs/SlackLogHandler.html#/s:7Logging10LogHandlerP8logLevelAA6LoggerV0E0Ovp">logLevel</a></code> of an individual <code>SlackLogHandler</code> is ignored when this global
+log level is set to a higher level.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">globalLogLevelThreshold</span><span class="p">:</span> <span class="kt">Logger</span><span class="o">.</span><span class="kt">Level</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12LoggingSlack0B10LogHandlerV5labelSSvp"></a>
+                    <a name="//apple_ref/swift/Property/label" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12LoggingSlack0B10LogHandlerV5labelSSvp">label</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The log label for the log handler.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">label</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12LoggingSlack0B10LogHandlerV10webhookURL10Foundation0F0Vvp"></a>
+                    <a name="//apple_ref/swift/Property/webhookURL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12LoggingSlack0B10LogHandlerV10webhookURL10Foundation0F0Vvp">webhookURL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Slack integration&rsquo;s webhook URL.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">webhookURL</span><span class="p">:</span> <span class="kt">URL</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12LoggingSlack0B10LogHandlerV7channelSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/channel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12LoggingSlack0B10LogHandlerV7channelSSSgvp">channel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Overrides the Slack integration&rsquo;s default channel.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">channel</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12LoggingSlack0B10LogHandlerV8usernameSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/username" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12LoggingSlack0B10LogHandlerV8usernameSSSgvp">username</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Overrides the Slack integration&rsquo;s default username.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12LoggingSlack0B10LogHandlerV4iconAC4IconOSgvp"></a>
+                    <a name="//apple_ref/swift/Property/icon" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12LoggingSlack0B10LogHandlerV4iconAC4IconOSgvp">icon</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Override the Slack integration&rsquo;s default icon.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt">SlackLogHandler</span><span class="o">.</span><span class="kt"><a href="../Structs/SlackLogHandler/Icon.html">Icon</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12LoggingSlack0B10LogHandlerV11colorSchemeSDy0A06LoggerV5LevelOAC5ColorVGvp"></a>
+                    <a name="//apple_ref/swift/Property/colorScheme" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12LoggingSlack0B10LogHandlerV11colorSchemeSDy0A06LoggerV5LevelOAC5ColorVGvp">colorScheme</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The color scheme is used to determine the color of a Slack message for a log level.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">colorScheme</span><span class="p">:</span> <span class="kt"><a href="../Structs/SlackLogHandler.html#/s:12LoggingSlack0B10LogHandlerV11ColorSchemea">ColorScheme</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Logging10LogHandlerP8logLevelAA6LoggerV0E0Ovp"></a>
+                    <a name="//apple_ref/swift/Property/logLevel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Logging10LogHandlerP8logLevelAA6LoggerV0E0Ovp">logLevel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">logLevel</span><span class="p">:</span> <span class="kt">Logger</span><span class="o">.</span><span class="kt">Level</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Logging10LogHandlerP8metadataSDySSAA6LoggerV13MetadataValueOGvp"></a>
+                    <a name="//apple_ref/swift/Property/metadata" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Logging10LogHandlerP8metadataSDySSAA6LoggerV13MetadataValueOGvp">metadata</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">metadata</span><span class="p">:</span> <span class="kt">Logger</span><span class="o">.</span><span class="kt">Metadata</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12LoggingSlack0B10LogHandlerV5label10webhookURL7channel8username4icon11colorSchemeACSS_10Foundation0G0VSSSgAmC4IconOSgSDy0A06LoggerV5LevelOAC5ColorVGtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(label:webhookURL:channel:username:icon:colorScheme:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12LoggingSlack0B10LogHandlerV5label10webhookURL7channel8username4icon11colorSchemeACSS_10Foundation0G0VSSSgAmC4IconOSgSDy0A06LoggerV5LevelOAC5ColorVGtcfc">init(label:webhookURL:channel:username:icon:colorScheme:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a <code>SlackLogHandler</code> for sending <code>Logger</code> output directly to Slack.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+            <span class="nv">webhookURL</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span>
+            <span class="nv">channel</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="nv">icon</span><span class="p">:</span> <span class="kt"><a href="../Structs/SlackLogHandler/Icon.html">Icon</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="nv">colorScheme</span><span class="p">:</span> <span class="kt"><a href="../Structs/SlackLogHandler.html#/s:12LoggingSlack0B10LogHandlerV11ColorSchemea">ColorScheme</a></span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>label</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The log label for the log handler.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>webhookURL</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The Slack integration&rsquo;s webhook URL.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>channel</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Overrides the Slack integration&rsquo;s default channel.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>username</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Overrides the Slack integration&rsquo;s default username.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>icon</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Override the Slack integration&rsquo;s default icon.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>colorScheme</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The color scheme is used to determine the color of a Slack message for a log level.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Logging10LogHandlerP11metadataKeyAA6LoggerV13MetadataValueOSgSS_tcip"></a>
+                    <a name="//apple_ref/swift/Method/subscript(metadataKey:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Logging10LogHandlerP11metadataKeyAA6LoggerV13MetadataValueOSgSS_tcip">subscript(metadataKey:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">subscript</span><span class="p">(</span><span class="n">metadataKey</span> <span class="nv">metadataKey</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Logger</span><span class="o">.</span><span class="kt">Metadata</span><span class="o">.</span><span class="kt">Value</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Logging10LogHandlerP3log5level7message8metadata4file8function4lineyAA6LoggerV5LevelO_AL7MessageVSDySSAL13MetadataValueOGSgS2SSutF"></a>
+                    <a name="//apple_ref/swift/Method/log(level:message:metadata:file:function:line:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Logging10LogHandlerP3log5level7message8metadata4file8function4lineyAA6LoggerV5LevelO_AL7MessageVSDySSAL13MetadataValueOGSgS2SSutF">log(level:message:metadata:file:function:line:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">log</span><span class="p">(</span><span class="nv">level</span><span class="p">:</span> <span class="kt">Logger</span><span class="o">.</span><span class="kt">Level</span><span class="p">,</span>
+                <span class="nv">message</span><span class="p">:</span> <span class="kt">Logger</span><span class="o">.</span><span class="kt">Message</span><span class="p">,</span>
+                <span class="nv">metadata</span><span class="p">:</span> <span class="kt">Logger</span><span class="o">.</span><span class="kt">Metadata</span><span class="p">?,</span>
+                <span class="nv">file</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">function</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12LoggingSlack0B10LogHandlerV11ColorSchemea"></a>
+                    <a name="//apple_ref/swift/Alias/ColorScheme" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12LoggingSlack0B10LogHandlerV11ColorSchemea">ColorScheme</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A color scheme is used to determine the color of a Slack message for a log level.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ColorScheme</span> <span class="o">=</span> <span class="p">[</span><span class="kt">Logger</span><span class="o">.</span><span class="kt">Level</span> <span class="p">:</span> <span class="kt"><a href="../Structs/SlackLogHandler/Color.html">Color</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12LoggingSlack0B10LogHandlerV11ColorSchemea"></a>
+                    <a name="//apple_ref/swift/Extension/ColorScheme" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12LoggingSlack0B10LogHandlerV11ColorSchemea">ColorScheme</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="../Structs/SlackLogHandler/ColorScheme.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Structs/SlackLogHandler.html">SlackLogHandler</a></span><span class="o">.</span><span class="kt"><a href="../Structs/SlackLogHandler.html#/s:12LoggingSlack0B10LogHandlerV11ColorSchemea">ColorScheme</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12LoggingSlack0B10LogHandlerV5ColorV"></a>
+                    <a name="//apple_ref/swift/Struct/Color" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12LoggingSlack0B10LogHandlerV5ColorV">Color</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A color represented by a hex string.</p>
+
+                        <a href="../Structs/SlackLogHandler/Color.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Color</span> <span class="p">:</span> <span class="kt">ExpressibleByStringLiteral</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12LoggingSlack0B10LogHandlerV4IconO"></a>
+                    <a name="//apple_ref/swift/Enum/Icon" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12LoggingSlack0B10LogHandlerV4IconO">Icon</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An icon for a Slack integration.</p>
+
+                        <a href="../Structs/SlackLogHandler/Icon.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Icon</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2020 <a class="link" href="https://twitter.com/wlisac" target="_blank" rel="external">Will Lisac</a>. All rights reserved. (Last updated: 2020-02-16)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>
