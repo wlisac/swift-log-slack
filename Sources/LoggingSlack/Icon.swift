@@ -3,7 +3,7 @@ import Foundation
 extension SlackLogHandler {
     /// An icon for a Slack integration.
     public enum Icon {
-        /// An [emoji code](https://www.webpagefx.com/tools/emoji-cheat-sheet) string to use in place of the default icon.
+        /// An [emoji code](https://webpagefx.com/tools/emoji-cheat-sheet) string to use in place of the default icon.
         ///
         ///     .emoji("smile")
         case emoji(String)
