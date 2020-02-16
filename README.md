@@ -52,9 +52,9 @@ let logger = Logger(label: "com.example.ExampleApp.main")
 logger.critical("Something went wrong!")
 ```
 
-#### Output
+### Logger Output
 
-This will output a Slack message and a console message since both logging backends were setup.
+The logger will output a Slack message and a console message since both logging backends were setup.
 
 <img src="Assets/message.png" width="308">
 
