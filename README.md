@@ -62,7 +62,7 @@ This will output a Slack message and a console message since both logging backen
 2020-02-15T19:30:00-0800 critical: Something went wrong!
 ```
 
-### Log Level Thresehold
+### Log Level Threshold
 
 Only `critical` [log level](https://github.com/apple/swift-log#log-levels) messages are sent to Slack by default.
 
