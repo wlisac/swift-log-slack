@@ -54,7 +54,7 @@ logger.critical("Something went wrong!")
 
 #### Output
 
-This will output a Slack message and a console message since both logging backends were setup using a `MultiplexLogHandler`.
+This will output a Slack message and a console message since both logging backends were setup.
 
 <img src="Assets/message.png" width="308">
 
