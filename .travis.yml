@@ -19,7 +19,10 @@ jobs:
       os: linux
       language: generic
       install: eval "$(curl -sL https://raw.githubusercontent.com/kylef/swiftenv/1.4.0/docs/install.sh)"
-      script: swift test
+      script: swift test --enable-code-coverage
+      after_success: |
+        llvm-cov export -format="lcov" .build/debug/swift-log-slackPackageTests.xctest -instr-profile .build/debug/codecov/default.profdata > info.lcov
+        bash <(curl -s https://codecov.io/bash)
       
     - &macOS
       name: macOS / Swift 5.1
@@ -30,8 +33,7 @@ jobs:
       name: iOS / Swift 5.1
       osx_image: xcode11
       xcode_destination: platform=iOS Simulator,OS=13.0,name=iPhone 11
-      before_install: swift package generate-xcodeproj --enable-code-coverage
-      after_success: bash <(curl -s https://codecov.io/bash)
+      before_install: swift package generate-xcodeproj
 
     - <<: *xcodebuild
       name: tvOS / Swift 5.1
@@ -46,7 +48,6 @@ jobs:
           -scheme swift-log-slack-Package \
           -destination 'platform=watchOS Simulator,OS=6.0,name=Apple Watch Series 4 - 40mm' \
           build | xcpretty
-      after_success: false
 
     - stage: pretest
       name: Validate Generated Linux Tests
