@@ -8,10 +8,11 @@ import Logging
 /// `Logger` output directly to Slack.
 public struct SlackLogHandler: LogHandler {
     /// The global log level threshold that determines when to send log output to Slack.
+    /// Defaults to `.critical`.
     ///
     /// The `logLevel` of an individual `SlackLogHandler` is ignored when this global
     /// log level is set to a higher level.
-    public static var globalLogLevelThreshold: Logger.Level = .error
+    public static var globalLogLevelThreshold: Logger.Level = .critical
     
     /// Internal for testing only.
     internal static var messageSendHandler: ((Result<Void, Error>) -> Void)?
