@@ -56,7 +56,7 @@ logger.critical("Something went wrong!")
 
 The logger will output a Slack message and a console message since both logging backends were setup.
 
-<img src="Assets/message.png" width="308">
+<img src="Assets/message-output.svg">
 
 ```plain
 2020-02-15T19:30:00-0800 critical: Something went wrong!
