@@ -1,6 +1,6 @@
 import Foundation
 
-struct SlackMessage: Encodable, Equatable {
+public struct SlackMessage: Encodable, Equatable {
     let channel: String?
     let username: String?
     let text: String?

@@ -18,7 +18,7 @@ public struct SlackLogHandler: LogHandler {
     internal static var messageSendHandler: ((Result<Void, Error>) -> Void)?
     
     /// Internal for testing only.
-    internal var slackSession: SlackSession = URLSession.shared
+    internal var slackSession: SlackSession
     
     /// The log label for the log handler.
     public var label: String
@@ -55,13 +55,15 @@ public struct SlackLogHandler: LogHandler {
                 channel: String? = nil,
                 username: String? = nil,
                 icon: Icon? = nil,
-                colorScheme: ColorScheme = .default) {
+                colorScheme: ColorScheme = .default,
+                slackSession: SlackSession = URLSession.shared) {
         self.label = label
         self.webhookURL = webhookURL
         self.channel = channel
         self.username = username
         self.icon = icon
         self.colorScheme = colorScheme
+        self.slackSession = slackSession
     }
     
     public subscript(metadataKey metadataKey: String) -> Logger.Metadata.Value? {

@@ -3,7 +3,7 @@ import Foundation
 import FoundationNetworking
 #endif
 
-protocol SlackSession {
+public protocol SlackSession {
     func send(_ message: SlackMessage, to webhookURL: URL, completion: ((Result<Void, Error>) -> Void)?)
 }
 
@@ -13,7 +13,7 @@ enum SlackSessionError: Error {
 }
 
 extension URLSession: SlackSession {
-    func send(_ message: SlackMessage,
+    public func send(_ message: SlackMessage,
               to webhookURL: URL,
               completion: ((Result<Void, Error>) -> Void)?) {
         let data: Data
